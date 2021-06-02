@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails/generators/base'
+require 'rails/generators'
 
-class DummyGenerator < Rails::Generators::Base
-  def create_dummy_initializer
-    create_file 'config/initializers/dummy.rb', '# This is a dummy initializer'
+module GemWithRailsGenerators
+  class DummyGenerator < Rails::Generators::Base
+    def create_dummy_initializer
+      initializer 'dummy.rb', "# This is a dummy initializer"
+    end
   end
 end
